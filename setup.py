@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 
 sys.path.append(os.path.abspath('./src'))
 
-VERS = imp.load_source('ejsonrcp.__version__', './src/ejsonrpc/__init__.py').__version__
+VERS = imp.load_source('ejsonrcp.version.__version__', './src/ejsonrpc/version.py').__version__
 
 add_require = []
 pyvers = sys.version_info
