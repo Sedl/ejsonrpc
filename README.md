@@ -17,3 +17,7 @@ Planned features
 Not yet implemented
 -------------------
 * Batch calls
+
+Debian Packaging
+----------------
+To build a debian package, install stdeb (pip install stdeb) and run python `setup.py --command-packages=stdeb.command bdist_deb`
