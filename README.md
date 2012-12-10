@@ -20,4 +20,4 @@ Not yet implemented
 
 Debian Packaging
 ----------------
-To build a debian package, install stdeb (pip install stdeb) and run python `setup.py --command-packages=stdeb.command bdist_deb`
+To build a debian package, install stdeb (`pip install stdeb`) and run `python setup.py --command-packages=stdeb.command bdist_deb`
