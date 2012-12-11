@@ -82,7 +82,7 @@ class JSONApp(object):
             if 'HTTP_AUTHORIZATION' in environ:
                 authstr = environ['HTTP_AUTHORIZATION']
                 if not authstr.startswith('Basic '):
-                    start_response('401 Unauthorized'
+                    start_response('401 Unauthorized',
                         [('Content-type', 'text/plain')])
                     return ['Unknown authorization method']
                 username, pwd = base64.b64decode(authstr[5:]).split(':', 1)
@@ -92,7 +92,7 @@ class JSONApp(object):
                 pwd = None
 
             if not self._auth_cb(remoteaddr, username, pwd):
-                start_response('401 Unauthorized'
+                start_response('401 Unauthorized',
                     [('Content-type', 'text/plain')])
                 return ['Authorization failed']
 
