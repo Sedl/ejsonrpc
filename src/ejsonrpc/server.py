@@ -139,8 +139,15 @@ class JSONApp(object):
             if not len(params) == 2:
                 raise RPCException(jsondata.get('id', None), INVALID_PARAMS)
 
+            # Stupid PHP workaround since you can't force json_encode to
+            # use a specific data type and PHP does not distinguish between
+            # lists and dictionaries
+            params[0] = list() if params[0] is None
+            params[1] = dict() if params[1] is None
+
             if not isinstance(params[0], list):
                 raise RPCException(jsondata.get('id', None), INVALID_PARAMS)
+
 
             if not isinstance(params[1], dict):
                 raise RPCException(jsondata.get('id', None), INVALID_PARAMS)
