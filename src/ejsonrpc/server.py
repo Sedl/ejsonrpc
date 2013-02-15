@@ -145,6 +145,9 @@ class JSONApp(object):
             params[0] = list() if params[0] is None else params[0]
             params[1] = dict() if params[1] is None else params[1]
 
+            # Workaround for python 2.5
+            params[1] = dict([(str(key), val) for key, val in params[1].items()])
+
             if not isinstance(params[0], list):
                 raise RPCException(jsondata.get('id', None), INVALID_PARAMS)
 
